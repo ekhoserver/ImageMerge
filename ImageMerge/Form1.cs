@@ -60,11 +60,9 @@ namespace ImageMerge
                             //Console.WriteLine(item.Name);
                             srcImage1 = Cv2.ImRead(item.FullName);
 
+                            double ratio = imgWidth / (double)srcImage1.Width;
 
-                            double ratioW = imgWidth / (double)srcImage1.Width;
-
-                            double ratioH = ratioW * srcImage1.Height;
-                            Cv2.Resize(srcImage1, srcImage1, new OpenCvSharp.Size(0, 0), ratioW, ratioW, InterpolationFlags.Area);
+                            Cv2.Resize(srcImage1, srcImage1, new OpenCvSharp.Size(0, 0), ratio, ratio, InterpolationFlags.Area);
 
                             if (board.Width != imgWidth)
                             {
